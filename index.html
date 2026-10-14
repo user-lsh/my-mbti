@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MBTI로 포켓몬 찾기</title>
+  <title>MBTI로 포켓몬 찾기 🌼</title>
 
   <style>
     * {
@@ -14,7 +14,7 @@
     :root {
       --cream: #fff9e9;
       --yellow: #ffdc78;
-      --yellow-dark: #f1bd43;
+      --yellow-dark: #e8b93f;
       --brown: #55432e;
       --white: #fffef9;
       --pink: #ffe7df;
@@ -25,10 +25,13 @@
       padding: 28px 16px 40px;
       background: var(--cream);
       color: var(--brown);
-      font-family:
-        "Malgun Gothic", "Apple SD Gothic Neo",
+      font-family: "Malgun Gothic", "Apple SD Gothic Neo",
         sans-serif;
       text-align: center;
+    }
+
+    button {
+      font-family: inherit;
     }
 
     .container {
@@ -39,7 +42,7 @@
 
     .badge {
       display: inline-block;
-      padding: 8px 16px;
+      padding: 9px 17px;
       background: #fff0bb;
       border: 2px solid #f6d77e;
       border-radius: 30px;
@@ -50,7 +53,7 @@
     h1 {
       margin: 18px 0 12px;
       font-size: clamp(30px, 6vw, 46px);
-      line-height: 1.25;
+      line-height: 1.3;
       letter-spacing: -1.5px;
     }
 
@@ -78,6 +81,7 @@
       margin: 0 0 22px;
       color: #927d60;
       font-size: 15px;
+      line-height: 1.7;
     }
 
     .mbti-grid {
@@ -96,10 +100,7 @@
       font-size: 17px;
       font-weight: 800;
       cursor: pointer;
-      transition:
-        transform 0.15s,
-        background 0.15s,
-        border-color 0.15s;
+      transition: transform 0.15s, background 0.15s;
     }
 
     .mbti-button:hover {
@@ -108,15 +109,14 @@
       transform: translateY(-2px);
     }
 
-    .mbti-button:focus-visible,
-    .reset-button:focus-visible {
-      outline: 3px solid #8c6b24;
-      outline-offset: 3px;
-    }
-
     .mbti-button.selected {
       background: var(--yellow);
       border-color: #d8a72c;
+    }
+
+    button:focus-visible {
+      outline: 3px solid #8c6b24;
+      outline-offset: 3px;
     }
 
     .result {
@@ -141,9 +141,9 @@
 
     .result-label {
       display: inline-block;
-      padding: 8px 16px;
-      border-radius: 30px;
+      padding: 9px 17px;
       background: #fff0bb;
+      border-radius: 30px;
       font-size: 15px;
       font-weight: bold;
     }
@@ -166,18 +166,18 @@
       background: #fffdf4;
       border: 3px solid #f6e6b7;
       border-radius: 50%;
-      font-size: 90px;
+      font-size: 88px;
     }
 
     .pokemon-name {
       margin: 12px 0 8px;
-      font-size: clamp(29px, 5vw, 38px);
+      font-size: clamp(30px, 5vw, 39px);
     }
 
     .pokemon-type {
       display: inline-block;
-      padding: 6px 14px;
-      background: #fff;
+      padding: 7px 14px;
+      background: white;
       border-radius: 20px;
       color: #8a7049;
       font-size: 14px;
@@ -186,11 +186,11 @@
 
     .reason-title {
       margin: 24px 0 10px;
-      font-size: 20px;
+      font-size: 21px;
     }
 
     .reason {
-      max-width: 500px;
+      max-width: 520px;
       margin: 0 auto;
       font-size: 17px;
       line-height: 1.9;
@@ -211,7 +211,7 @@
 
     .compatibility-icon {
       flex-shrink: 0;
-      font-size: 37px;
+      font-size: 38px;
     }
 
     .compatibility-label {
@@ -222,13 +222,13 @@
 
     .compatibility-type {
       margin: 0 0 5px;
-      font-size: 24px;
+      font-size: 25px;
     }
 
     .compatibility-description {
       margin: 0;
       font-size: 15px;
-      line-height: 1.6;
+      line-height: 1.7;
       word-break: keep-all;
     }
 
@@ -254,7 +254,7 @@
       margin-top: 28px;
       color: #a08d70;
       font-size: 13px;
-      line-height: 1.8;
+      line-height: 1.9;
     }
 
     @media (max-width: 420px) {
@@ -293,6 +293,7 @@
 
 <body>
   <main class="container">
+
     <div class="badge">🌼 나의 성격 탐험</div>
 
     <h1>MBTI로 포켓몬 찾기</h1>
@@ -302,10 +303,11 @@
       MBTI를 선택하고 나만의 포켓몬을 만나 봐! ✨
     </p>
 
-    <section class="panel" aria-labelledby="select-title">
-      <h2 class="section-title" id="select-title">
+    <section class="panel" aria-labelledby="selectTitle">
+      <h2 class="section-title" id="selectTitle">
         💛 나의 MBTI를 골라 줘!
       </h2>
+
       <p class="hint">
         16가지 유형 중 하나를 선택해 봐.
       </p>
@@ -342,16 +344,13 @@
       </div>
 
       <div class="pokemon-card">
-        <div class="pokemon-emoji" id="pokemonEmoji" aria-hidden="true">
-          ⚡
-        </div>
+        <div class="pokemon-emoji" id="pokemonEmoji"
+             aria-hidden="true">⚡</div>
 
-        <h2 class="pokemon-name" id="resultTitle">
-          피카츄
-        </h2>
+        <h2 class="pokemon-name" id="resultTitle">피카츄</h2>
 
         <div class="pokemon-type" id="pokemonType">
-          ENFP의 포켓몬
+          밝고 에너지 넘치는 타입
         </div>
 
         <h3 class="reason-title">🌟 너와 닮은 이유</h3>
@@ -360,12 +359,16 @@
 
       <div class="compatibility">
         <div class="compatibility-icon" aria-hidden="true">💗</div>
+
         <div>
-          <p class="compatibility-label">너와 잘 맞을 것 같은 유형</p>
+          <p class="compatibility-label">
+            너와 잘 맞을 것 같은 유형
+          </p>
           <h3 class="compatibility-type" id="compatibilityType">
             INFJ
           </h3>
-          <p class="compatibility-description" id="compatibilityReason"></p>
+          <p class="compatibility-description"
+             id="compatibilityReason"></p>
         </div>
       </div>
 
@@ -375,24 +378,28 @@
     </section>
 
     <p class="footer">
-      🍯 MBTI와 포켓몬의 성격을 재미있게 연결한 콘텐츠야.<br>
-      실제 성격이나 궁합을 과학적으로 판정하는 검사는 아니야!
+      🍯 성격과 포켓몬을 재미있게 연결한 콘텐츠야.<br>
+      MBTI와 궁합은 과학적인 성격 판정이나 공식 설정이 아니야.
     </p>
+
   </main>
 
   <script>
-    // 각 MBTI에 어울리는 포켓몬과 성격 설명
+    // 16가지 유형마다 서로 다른 포켓몬 한 마리씩 배정했어.
+    // 이름이 중복되지 않도록 구성했어.
+
     const pokemonData = {
       ISTJ: {
         name: "거북왕",
         emoji: "🐢",
         type: "신중하고 책임감 있는 타입",
         reason: [
-          "차분하고 계획적으로 행동하는 모습이 믿음직스러워.",
-          "맡은 일을 끝까지 해내는 성실함과 든든함이 거북왕을 닮았어."
+          "계획을 세우고 맡은 일을 끝까지 해내는 모습이 닮았어.",
+          "어려운 상황에서도 침착하게 자신의 역할을 다하는 든든한 타입이야."
         ],
         match: "ESFP",
-        matchReason: "활기찬 ESFP가 새로운 즐거움을 더해 주고, 너는 안정감을 보태 줄 수 있어."
+        matchReason:
+          "ESFP의 밝은 에너지가 일상에 즐거움을 더하고, 너의 신중함은 상대에게 안정감을 줄 수 있어."
       },
 
       ISFJ: {
@@ -400,11 +407,12 @@
         emoji: "💗",
         type: "다정하고 배려심 깊은 타입",
         reason: [
-          "다른 사람을 세심하게 챙기고 따뜻하게 보살피는 모습이 닮았어.",
-          "주변 사람들에게 편안함과 안정감을 주는 포켓몬이야."
+          "주변 사람들을 세심하게 챙기고 도움이 필요한 사람을 돕는 모습이 닮았어.",
+          "따뜻한 마음과 꾸준한 배려로 다른 사람에게 편안함을 주는 타입이야."
         ],
         match: "ESFP",
-        matchReason: "ESFP의 밝은 에너지가 너를 즐겁게 하고, 너의 다정함은 상대에게 든든함을 줘."
+        matchReason:
+          "ESFP의 활발함은 너에게 새로운 즐거움을 주고, 너의 다정함은 상대를 따뜻하게 감싸 줄 수 있어."
       },
 
       INFJ: {
@@ -412,11 +420,12 @@
         emoji: "🧚",
         type: "통찰력 있고 따뜻한 타입",
         reason: [
-          "다른 사람의 마음을 깊이 이해하고 소중한 사람을 지키려는 모습이 닮았어.",
-          "조용하지만 깊은 생각과 강한 신념을 가진 점도 잘 어울려."
+          "다른 사람의 감정을 깊이 이해하고 소중한 사람을 지키려는 모습이 닮았어.",
+          "조용하지만 뚜렷한 신념과 깊은 생각을 지닌 점도 잘 어울려."
         ],
         match: "ENFP",
-        matchReason: "ENFP의 자유로운 상상력이 너의 깊은 생각을 넓혀 주고, 너는 상대에게 방향을 제시해 줄 수 있어."
+        matchReason:
+          "ENFP의 자유로운 상상력이 너의 생각을 넓혀 주고, 너는 상대가 자신의 가능성을 발견하도록 도와줄 수 있어."
       },
 
       INTJ: {
@@ -424,23 +433,25 @@
         emoji: "🧠",
         type: "전략적이고 독립적인 타입",
         reason: [
-          "목표를 세우고 논리적으로 해결책을 찾아가는 모습이 닮았어.",
-          "독립적으로 생각하고 복잡한 문제를 깊이 파고드는 점도 어울려."
+          "복잡한 문제를 분석하고 효율적인 해결책을 찾는 모습이 닮았어.",
+          "독립적으로 생각하며 장기적인 목표를 세우는 점도 잘 어울려."
         ],
         match: "ENFP",
-        matchReason: "ENFP의 창의적인 아이디어와 너의 전략적인 사고가 만나면 새로운 가능성을 발견할 수 있어."
+        matchReason:
+          "ENFP의 창의적인 발상과 너의 전략적인 사고가 만나면 새로운 가능성을 발견할 수 있어."
       },
 
       ISTP: {
         name: "메타그로스",
         emoji: "🤖",
-        type: "분석적이고 실용적인 타입",
+        type: "논리적이고 실용적인 타입",
         reason: [
-          "문제를 침착하게 분석하고 효율적인 해결책을 찾는 모습이 닮았어.",
-          "복잡한 상황에서도 이성적으로 판단하는 점이 잘 어울려."
+          "정보를 분석하고 문제의 원리를 파악하는 모습이 닮았어.",
+          "감정보다 사실과 해결 방법에 집중하며 침착하게 행동하는 점이 어울려."
         ],
         match: "ESFJ",
-        matchReason: "ESFJ의 따뜻한 소통 능력이 너의 실용적인 면을 보완하고, 너는 든든한 해결사가 되어 줄 수 있어."
+        matchReason:
+          "ESFJ의 따뜻한 소통과 너의 실용적인 사고가 서로를 보완해 줄 수 있어."
       },
 
       ISFP: {
@@ -449,10 +460,11 @@
         type: "감성적이고 자유로운 타입",
         reason: [
           "자신만의 취향과 감성을 소중히 여기는 모습이 닮았어.",
-          "다양한 가능성을 품고 자기만의 방식으로 성장하는 점도 어울려."
+          "다양한 가능성을 품고 자기만의 방식으로 성장하는 점도 잘 어울려."
         ],
         match: "ENFJ",
-        matchReason: "ENFJ는 너의 가능성을 응원해 주고, 너는 상대에게 편안함과 진솔한 감정을 전할 수 있어."
+        matchReason:
+          "ENFJ의 적극적인 응원은 너의 가능성을 펼치도록 도와주고, 너는 상대에게 편안함을 줄 수 있어."
       },
 
       INFP: {
@@ -461,10 +473,11 @@
         type: "상상력 풍부하고 섬세한 타입",
         reason: [
           "풍부한 상상력과 자신만의 세계를 소중히 여기는 모습이 닮았어.",
-          "조용하고 부드러워 보여도 마음속에 특별한 생각과 꿈을 품고 있어."
+          "부드러운 감성과 자신이 중요하게 생각하는 가치를 지키는 점도 어울려."
         ],
         match: "ENFJ",
-        matchReason: "ENFJ의 적극적인 응원은 네가 꿈을 펼치도록 도와주고, 너의 진심은 상대의 마음을 따뜻하게 해 줘."
+        matchReason:
+          "ENFJ의 따뜻한 격려가 너의 꿈을 응원하고, 너의 진솔한 마음은 상대에게 새로운 시각을 줄 수 있어."
       },
 
       INTP: {
@@ -472,11 +485,12 @@
         emoji: "🥄",
         type: "호기심 많고 논리적인 타입",
         reason: [
-          "궁금한 것이 생기면 깊이 생각하고 원리를 파악하려는 모습이 닮았어.",
+          "궁금한 것이 생기면 원리를 이해할 때까지 깊이 생각하는 모습이 닮았어.",
           "독창적인 아이디어와 분석적인 사고를 즐기는 점도 잘 어울려."
         ],
         match: "ENTJ",
-        matchReason: "ENTJ의 실행력과 너의 분석력이 만나면 좋은 아이디어를 실제 결과로 발전시킬 수 있어."
+        matchReason:
+          "ENTJ의 실행력과 너의 분석력이 만나면 흥미로운 아이디어를 구체적인 결과로 발전시킬 수 있어."
       },
 
       ESTP: {
@@ -485,10 +499,11 @@
         type: "대담하고 행동력 있는 타입",
         reason: [
           "상황을 빠르게 파악하고 망설이기보다 직접 행동하는 모습이 닮았어.",
-          "위기에서도 침착하게 대응하고 도전을 즐기는 점이 어울려."
+          "도전을 두려워하지 않고 눈앞의 문제를 해결하는 점도 잘 어울려."
         ],
         match: "ISFJ",
-        matchReason: "ISFJ의 세심함이 너의 빠른 행동을 뒷받침하고, 너는 상대에게 새로운 경험을 선물할 수 있어."
+        matchReason:
+          "ISFJ의 세심함이 너의 빠른 행동을 보완하고, 너는 상대에게 새로운 경험을 선물할 수 있어."
       },
 
       ESFP: {
@@ -497,22 +512,24 @@
         type: "밝고 에너지 넘치는 타입",
         reason: [
           "주변 분위기를 밝게 만들고 사람들과 함께 즐기는 모습이 닮았어.",
-          "순간의 즐거움을 소중히 여기고 따뜻한 에너지를 나누는 점이 매력적이야."
+          "순간의 즐거움을 소중히 여기고 활기찬 에너지를 나누는 점이 매력적이야."
         ],
         match: "ISTJ",
-        matchReason: "ISTJ의 차분함이 너에게 안정감을 주고, 너는 상대의 일상에 활기와 즐거움을 더해 줄 수 있어."
+        matchReason:
+          "ISTJ의 차분함은 너에게 안정감을 주고, 너의 활기는 상대의 일상에 즐거움을 더할 수 있어."
       },
 
       ENFP: {
-        name: "피카츄",
-        emoji: "⚡",
-        type: "열정적이고 상상력 풍부한 타입",
+        name: "나옹",
+        emoji: "🐱",
+        type: "호기심 많고 재치 있는 타입",
         reason: [
-          "새로운 만남과 아이디어를 좋아하고 주변에 밝은 에너지를 전하는 모습이 닮았어.",
-          "호기심이 많고 가능성을 발견하면 신나게 도전하는 점도 잘 어울려."
+          "새로운 사람과 아이디어에 관심이 많고 다양한 가능성을 탐색하는 모습이 닮았어.",
+          "재치 있고 자유로운 발상으로 주변에 활기를 더하는 점이 잘 어울려."
         ],
         match: "INFJ",
-        matchReason: "INFJ의 깊이 있는 통찰이 너의 아이디어를 발전시키고, 너의 활기는 상대에게 새로운 시각을 열어 줄 수 있어."
+        matchReason:
+          "INFJ의 깊이 있는 통찰은 너의 아이디어를 발전시키고, 너의 활기는 상대에게 새로운 시각을 열어 줄 수 있어."
       },
 
       ENTP: {
@@ -521,10 +538,11 @@
         type: "재치 있고 창의적인 타입",
         reason: [
           "남들이 생각하지 못한 방식으로 문제를 바라보는 모습이 닮았어.",
-          "재치 있는 발상과 새로운 도전을 즐기는 장난스러운 매력이 있어."
+          "새로운 아이디어를 떠올리고 유쾌한 방식으로 도전을 즐기는 점이 어울려."
         ],
         match: "INTJ",
-        matchReason: "INTJ의 전략적인 사고와 너의 기발한 발상이 만나면 독창적인 아이디어를 구체화할 수 있어."
+        matchReason:
+          "INTJ의 전략적인 사고와 너의 기발한 발상이 만나면 독창적인 아이디어를 구체화할 수 있어."
       },
 
       ESTJ: {
@@ -532,11 +550,12 @@
         emoji: "💪",
         type: "추진력 있고 체계적인 타입",
         reason: [
-          "목표를 향해 체계적으로 움직이고 일을 확실하게 처리하는 모습이 닮았어.",
-          "책임감과 실행력을 바탕으로 주변을 이끄는 점이 잘 어울려."
+          "목표를 향해 체계적으로 움직이고 맡은 일을 확실하게 처리하는 모습이 닮았어.",
+          "강한 책임감과 실행력을 바탕으로 주변을 이끄는 점이 잘 어울려."
         ],
         match: "ISFP",
-        matchReason: "ISFP의 유연함과 감성이 너에게 새로운 관점을 더하고, 너는 상대가 목표를 이루도록 도와줄 수 있어."
+        matchReason:
+          "ISFP의 유연함과 감성이 너에게 새로운 관점을 더하고, 너는 상대가 목표를 이루도록 도와줄 수 있어."
       },
 
       ESFJ: {
@@ -545,22 +564,24 @@
         type: "사교적이고 다정한 타입",
         reason: [
           "사람들과 어울리는 것을 좋아하고 모두가 즐겁기를 바라는 모습이 닮았어.",
-          "노래와 밝은 분위기로 주변 사람들을 행복하게 만드는 점이 어울려."
+          "다정한 소통과 밝은 분위기로 주변 사람들을 행복하게 만드는 점이 어울려."
         ],
         match: "ISTP",
-        matchReason: "ISTP의 침착하고 실용적인 면이 너를 도와주고, 너의 따뜻한 소통은 상대에게 활력을 줄 수 있어."
+        matchReason:
+          "ISTP의 침착하고 실용적인 면이 너를 도와주고, 너의 따뜻한 소통은 상대에게 활력을 줄 수 있어."
       },
 
       ENFJ: {
-        name: "루카리오",
-        emoji: "🥊",
-        type: "공감 능력과 리더십을 갖춘 타입",
+        name: "라프라스",
+        emoji: "🐬",
+        type: "공감 능력과 배려심을 갖춘 타입",
         reason: [
-          "다른 사람의 마음을 헤아리고 함께 성장하도록 이끄는 모습이 닮았어.",
-          "소중한 사람을 지키기 위해 적극적으로 행동하는 점도 잘 어울려."
+          "다른 사람의 마음을 이해하고 함께 성장하는 것을 중요하게 생각하는 모습이 닮았어.",
+          "주변 사람들을 돕고 따뜻한 분위기를 만들어 가는 점이 잘 어울려."
         ],
         match: "INFP",
-        matchReason: "INFP의 진솔한 감성과 너의 따뜻한 리더십이 만나면 서로의 꿈과 마음을 깊이 이해할 수 있어."
+        matchReason:
+          "INFP의 진솔한 감성과 너의 따뜻한 배려가 만나면 서로의 꿈과 마음을 깊이 이해할 수 있어."
       },
 
       ENTJ: {
@@ -569,10 +590,11 @@
         type: "대담하고 목표 지향적인 타입",
         reason: [
           "큰 목표를 세우고 자신 있게 앞으로 나아가는 모습이 닮았어.",
-          "강한 추진력과 리더십으로 어려운 상황을 돌파하는 점이 어울려."
+          "강한 추진력과 결단력으로 어려운 상황을 돌파하는 점이 어울려."
         ],
         match: "INTP",
-        matchReason: "INTP의 논리적인 분석이 너의 계획을 더 탄탄하게 만들고, 너는 아이디어가 실현되도록 추진력을 더해 줄 수 있어."
+        matchReason:
+          "INTP의 논리적인 분석이 너의 계획을 더 탄탄하게 만들고, 너는 아이디어가 실현되도록 추진력을 더해 줄 수 있어."
       }
     };
 
@@ -589,7 +611,17 @@
       document.getElementById("compatibilityReason");
     const resetButton = document.getElementById("resetButton");
 
-    // MBTI 버튼을 누르면 결과 표시
+    // 포켓몬 이름 중복 여부를 확인하는 검사
+    const pokemonNames = Object.values(pokemonData).map(
+      pokemon => pokemon.name
+    );
+
+    if (pokemonNames.length !== 16 ||
+        new Set(pokemonNames).size !== 16) {
+      throw new Error("포켓몬 이름은 16마리 모두 달라야 합니다.");
+    }
+
+    // MBTI 버튼을 누르면 해당 포켓몬을 보여 줘.
     grid.addEventListener("click", function (event) {
       const button = event.target.closest("button[data-mbti]");
 
@@ -600,7 +632,6 @@
 
       if (!data) return;
 
-      // 이전 선택 표시 제거
       grid.querySelectorAll(".mbti-button").forEach(function (item) {
         item.classList.remove("selected");
         item.setAttribute("aria-pressed", "false");
@@ -609,19 +640,18 @@
       button.classList.add("selected");
       button.setAttribute("aria-pressed", "true");
 
-      // 포켓몬 결과 표시
       resultLabel.textContent = "🎉 " + mbti + "의 포켓몬";
       resultTitle.textContent = data.name;
       pokemonEmoji.textContent = data.emoji;
       pokemonType.textContent = data.type;
 
-      // 이유를 두 줄로 표시
+      // 이유를 읽기 쉬운 두 줄로 표시해.
       reason.replaceChildren();
 
       data.reason.forEach(function (line, index) {
-        const paragraph = document.createElement("span");
-        paragraph.textContent = line;
-        reason.appendChild(paragraph);
+        const span = document.createElement("span");
+        span.textContent = line;
+        reason.appendChild(span);
 
         if (index < data.reason.length - 1) {
           reason.appendChild(document.createElement("br"));
@@ -633,7 +663,6 @@
 
       result.hidden = false;
 
-      // 결과가 화면에 나타나도록 이동
       result.scrollIntoView({
         behavior: window.matchMedia(
           "(prefers-reduced-motion: reduce)"
@@ -642,7 +671,7 @@
       });
     });
 
-    // 다시 고르기: 선택을 초기화하고 버튼 영역으로 이동
+    // 다시 고르기를 누르면 처음 상태로 돌아가.
     resetButton.addEventListener("click", function () {
       result.hidden = true;
 
@@ -659,7 +688,7 @@
       });
     });
 
-    // 초기 접근성 상태 설정
+    // 키보드와 보조 기술을 위한 초기 설정
     grid.querySelectorAll(".mbti-button").forEach(function (button) {
       button.setAttribute("aria-pressed", "false");
     });
